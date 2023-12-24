@@ -1,0 +1,40 @@
+syntax="proto3";
+
+
+option go_package = "dictionary/dictpb";
+
+package dictpb;
+
+service DictionaryService {
+
+    rpc Tranlate(TranslateRequest) returns (TranslateResponse) {}
+    rpc GetMessage(GetMessageRequest) returns (GetMessageResponse) {}
+    rpc AddMessage(AddMessageRequest) returns(AddMessageResponse){}
+}
+
+message TranslateRequest {
+    string input = 1;
+}
+
+message TranslateResponse {
+    string output = 1;
+}
+
+message AddMessageRequest {
+    string key = 1;
+    string value = 2;
+
+}
+
+message AddMessageResponse {
+    string message = 1;
+}
+
+message GetMessageRequest {
+    string key = 1;
+}
+
+message GetMessageResponse {
+    string value = 1;
+}
+
